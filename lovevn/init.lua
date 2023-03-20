@@ -2,4 +2,6 @@
 
 local dir = debug.getinfo(1).source:match("@?(.*/)"):gsub("/", ".")
 
-require (dir .. "vn")
+vn = require (dir .. "vn")
+
+return vn
