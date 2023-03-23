@@ -1,5 +1,9 @@
 function love.load()
+    love.setDeprecationOutput(false)
+    require "err"
     vn = require "lovevn"
+
+    ss.d = "story"
 end
 
 function love.update(dt)
