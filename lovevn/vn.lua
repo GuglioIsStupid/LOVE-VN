@@ -31,8 +31,8 @@ label["story"] = {
     -- Since it is empty, it will go right to main menu when game is started
     {"e", "You just made a new VN with lovevn!"},
     {"e", "To start writing story, make a file called \"story.lua\" and require it in love.load()"},
-    {"e", "{speed=30}I love{speed=20} changing speeds{speed=10} mid-text!"},
-    {"e", "{speed=100}aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa{speed=1}aaaaaaaaaaaaaaaaaaaaaaaaaaa"},
+    {"e", "{speed=30}I love{speed=10} changing speeds{speed=1} mid-text!"},
+    {"e", "{speed=5}Micheal Jackson{speed=10} is the {speed=20}best{speed=10} singer{speed=5} ever!"},
     {function() print("t") end},
 }
 

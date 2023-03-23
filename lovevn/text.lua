@@ -33,12 +33,19 @@ t.update = function(dt)
 
         -- check for speed changes
         if t.txt:sub(t.curChar, t.curChar) == "{" then
-            local speed = t.txt:sub(t.curChar + 1, t.txt:find("}", t.curChar) - 1)
-            t.speed = tonumber(speed:sub(speed:find("=") + 1))
-            t.curChar = t.txt:find("}", t.curChar) + 1
+            -- there can be multiple speed changes in one line
+            -- look for first }
+            local endPos = t.txt:find("}", t.curChar)
+            -- get the speed change
+            local speedChange = t.txt:sub(t.curChar, endPos)
+            -- remove the speed change from the string
+            t.txt = t.txt:gsub(speedChange, "")
+            speedChange = speedChange:gsub("{", "")
+            speedChange = speedChange:gsub("}", "")
+            speedChange = speedChange:gsub("speed=", "")
+            print(speedChange)
+            t.speed = tonumber(speedChange)
         end
-        -- remove the speed change from the string
-        t.txt = t.txt:gsub("{speed=%d+}", "")
 
         -- check for end of string
         if t.curChar >= #t.txt then
