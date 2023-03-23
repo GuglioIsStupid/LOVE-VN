@@ -32,8 +32,7 @@ label["story"] = {
     {"e", "You just made a new VN with lovevn!"},
     {"e", "To start writing story, make a file called \"story.lua\" and require it in love.load()"},
     {"e", "{speed=30}I love{speed=10} changing speeds{speed=1} mid-text!"},
-    {"e", "{speed=5}Micheal Jackson{speed=10} is the {speed=20}best{speed=10} singer{speed=5} ever!"},
-    {function() print("t") end},
+    {"e", "{speed=5}Micheal Jackson{speed=10} is the {speed=20}best{speed=10} singer{speed=5} ever!", {function() print("t") end}},
 }
 
 label["end"] = {
@@ -65,6 +64,8 @@ return {
         if key == "return" then
             if t.curChar < #t.txt then
                 t.curChar = #t.txt
+                -- gsub {speed=num} with nothing
+                t.txt = t.txt:gsub("{speed=%d+}", "")
             else
                 if label[curLabel][t.curLine + 1] then
                     t.curLine = t.curLine + 1

@@ -18,6 +18,12 @@ t.set = function(dia)
         t.isStr = true
         t.sayer = dia[1]
         t.txt = dia[2]
+        if dia[3] then
+            t.func = dia[3][1]
+        end
+        if t.func then
+            t.func()
+        end
     else
         -- do the function
         dia()
